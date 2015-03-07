@@ -8,15 +8,15 @@ class RapydScriptCompiler(SubProcessCompiler):
     output_extension = 'js'
 
     def match_file(self, path):
-        return path.endswith('.rapydscript')
+        return path.endswith('.rapydscript') or path.endswith('.pyj')
 
     def compile_file(self, infile, outfile, outdated=False, force=False):
         if not outdated and not force:
             return  # File doesn't need to be recompiled
-        command = "%s -cp %s %s > %s" % (
+        command = "%s %s %s > %s" % (
             settings.PIPELINE_RAPYD_SCRIPT_BINARY,
-            settings.PIPELINE_RAPYD_SCRIPT_ARGUMENTS,
             infile,
+            settings.PIPELINE_RAPYD_SCRIPT_ARGUMENTS,
             outfile
         )
         return self.execute_command(command)

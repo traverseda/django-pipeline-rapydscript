@@ -6,7 +6,7 @@ from pipeline.conf import DEFAULTS, PipelineSettings
 
 DEFAULTS=DEFAULTS.update(
   {
-    'PIPELINE_RAPYD_SCRIPT_BINARY': '/usr/bin/env coffee',
+    'PIPELINE_RAPYD_SCRIPT_BINARY': '/usr/bin/env rapydscript',
     'PIPELINE_RAPYD_SCRIPT_ARGUMENTS': '',
   }
 )
